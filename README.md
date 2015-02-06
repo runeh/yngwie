@@ -54,7 +54,7 @@ UnleashEventSource extends node's event emitter. Thus it supports `on`, `once` a
 
 ### Events
 
-`connect'. Triggered when the first event is received.
+`connect`. Triggered when the first event is received.
 
 `event`. Triggered for every unleash event.
 
@@ -80,7 +80,7 @@ var stream = new yngwie.UnleashEventStream(unleashEventsUrl);
 stream
     .filter(function(e) { return e.type == 'feature-updated'; })
     .map(function(e) { 
-        return e.data.name + ": " + e.data.enabled ? "enabled" : disabled;
+        return e.data.name + ": " + (e.data.enabled ? 'enabled' : 'disabled');
     })
     .each(console.log);
 ```
