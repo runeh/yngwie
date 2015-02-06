@@ -70,7 +70,6 @@ UnlessEventStream is a [Highland](http://highlandjs.org/) stream that yields eve
 
 ### Example
 
-
 ```javascript
 var yngwie = require('yngwie');
 
@@ -85,6 +84,137 @@ stream
     .each(console.log);
 ```
 
+## Event data
+
+The following are example event payloads:
+
+### feature-created
+
+```json
+{
+    "id": 142,
+    "type": "feature-created",
+    "createdBy": "unknown",
+    "createdAt": "2015-02-06T12:23:41.072Z",
+    "data": {
+        "name": "frontend-trakcing",
+        "description": "Enable sending frontend performance data",
+        "strategy": "default",
+        "enabled": true,
+        "parameters": {}
+    },
+    "diffs": null
+}
+```
+
+### feature-updated
+
+```json
+{
+    "id": 149,
+    "type": "feature-updated",
+    "createdBy": "unknown",
+    "createdAt": "2015-02-06T12:28:29.388Z",
+    "data": {
+        "name": "frontend-trakcing",
+        "description": "Enable sending frontend performance data",
+        "strategy": "default",
+        "enabled": true,
+        "parameters": {}
+    },
+    "diffs": [
+        {
+            "kind": "N",
+            "path": [
+                "strategy"
+            ],
+            "rhs": "default"
+        },
+        {
+            "kind": "N",
+            "path": [
+                "enabled"
+            ],
+            "rhs": true
+        },
+        {
+            "kind": "N",
+            "path": [
+                "parameters"
+            ],
+            "rhs": {}
+        }
+    ]
+}
+```
+
+### feature-archive
+
+```json
+{
+    "id": 144,
+    "type": "feature-archive",
+    "createdBy": "unknown",
+    "createdAt": "2015-02-06T12:23:54.654Z",
+    "data": {
+        "name": "frontend-trakcing"
+    },
+    "diffs": [
+        {
+            "kind": "D",
+            "path": [
+                "description"
+            ],
+            "lhs": "Enable sending frontend performance data"
+        },
+        {
+            "kind": "D",
+            "path": [
+                "strategy"
+            ],
+            "lhs": "default"
+        },
+        {
+            "kind": "D",
+            "path": [
+                "enabled"
+            ],
+            "lhs": false
+        },
+        {
+            "kind": "D",
+            "path": [
+                "parameters"
+            ],
+            "lhs": {}
+        }
+    ]
+}
+```
+
+### feature-revive
+
+```json
+{
+    "id": 145,
+    "type": "feature-revive",
+    "createdBy": "10.33.138.79",
+    "createdAt": "2015-02-06T12:23:59.286Z",
+    "data": {
+        "name": "frontend-trakcing",
+        "description": "Enable sending frontend performance data"
+    },
+    "diffs": [
+        {
+            "kind": "N",
+            "path": [
+                "description"
+            ],
+            "rhs": "Enable sending frontend performance data"
+        }
+    ]
+}
+```
 
 ## Notes
 
